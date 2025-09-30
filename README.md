@@ -61,7 +61,6 @@ Seu terminal deve mostrar ```(venv)``` no início da linha de comando, indicando
 
 Com o ambiente virtual ativo, instale todas as bibliotecas necessárias.
 
-
 ```
 Bash
 
@@ -77,4 +76,13 @@ Bash
 ```xlsxwriter```	CRUCIAL: Usado para escrever o arquivo Excel de saída. É o que permite forçar o formato de Texto nas colunas de data (impedindo o 00:00:00).
 
 Passo 4: Configuração Final (```config.py```)
+
+Antes de executar, você deve ajustar o arquivo config.py para mapear os caminhos e nomes de colunas corretos, de acordo com seus dados.
+
+* Mova os arquivos do seu projeto (main.py, classifier.py, config.py) para o diretório raiz (Projeto_Classificador_IBGE).
+
+* Edite config.py e aponte PASTA_PLANILHAS_ORIGINAIS para o seu novo diretório planilhas_originais/.
+
+Passo 5: Execução
+Com o ambiente ativo e a configuração feita, você executa o sistema como um módulo:
 
