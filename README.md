@@ -1,4 +1,4 @@
-#  <CENTER> 🤖 🇧🇷 Republic DataForge  
+# <center> 🇧🇷 Republic DataForge 🤖 
 
 <p align="center">
 <img src="https://img.shields.io/badge/Python-3.x-blue.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
