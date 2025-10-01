@@ -1,4 +1,4 @@
-#  <CENTER> ✨ 🇧🇷 Republic DataForge  
+#  <CENTER> 🤖 🇧🇷 Republic DataForge  
 
 <p align="center">
 <img src="https://img.shields.io/badge/Python-3.x-blue.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
@@ -23,7 +23,7 @@ Este projeto implementa um sistema robusto e modularizado em Python para process
 
 <br><br>
 
-# Estrutura do Projeto
+# 🗺️ Estrutura do Projeto
 O código é dividido em módulos, seguindo o padrão de Separação de Responsabilidades (SoC):
 
 <br>
