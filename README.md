@@ -22,11 +22,24 @@
 
 <br><br>
 
+# Estrutura do Projeto
+O código é dividido em módulos, seguindo o padrão de Separação de Responsabilidades (SoC):
+
+<br>
+
+| Módulo	| Tipo	| Responsabilidade |
+| --- | --- | --- |
+| config.py	| Configuração	| Armazena variáveis de ambiente, caminhos de I/O e nomes de colunas. |
+| classifier.py	| Lógica de Negócio	| Implementa a consulta dupla à API do IBGE, cálculo de frequência e correção SSL. |
+| main.py	| Orquestrador	| Gerencia o fluxo de trabalho: leitura, formatação de dados, aplicação do classificador e escrita final. |
+
+<br>
+
 # 🏗️ Instrução de Instalação
 
 <br>
 
-## 🛠️ **Pre requisistos**
+## 🛠️ Pre requisistos
 
 ```Python (Versão 3.x)``` O sistema foi desenvolvido em Python. Recomenda-se usar uma versão 3.7 ou superior para garantir a compatibilidade com todas as bibliotecas e suas funcionalidades mais recentes.
 
@@ -72,7 +85,7 @@ python -m venv venv
 
 2. Ative o Ambiente Virtual:
 
-| Sistema operaciona | <CENTER> Bash | 
+| **Sistema operaciona** | <CENTER> **Bash** | 
 | --- | --- |
 | Windows (CMD/PowerShell) | ```.\venv\Scripts\activate``` |
 | macOS ou Linux | ```source venv/bin/activate``` | 
@@ -139,7 +152,7 @@ PASTA_SAIDA_NOME = 'planilhas_transformadas'
 
 <br>
 
-**2. Coluna de Entrada (Nome Completo)**
+**2. Coluna de Entrada (Nome Completo)**<br>
 O script precisa saber qual coluna contém o nome completo que ele deve enviar para a API do IBGE. O nome deve ser EXATO (sensível a espaços e maiúsculas).
 
 ```
@@ -179,3 +192,41 @@ Bash
 (venv) $ python -m main
 ```
 <br>
+
+
+# 📊 Saída do Processamento
+
+Uma nova coluna chamada Gênero Classificado é adicionada ao DataFrame com os seguintes códigos:
+
+| **Código** | <center>**Significado** |
+| --- | --- |
+| F | Feminino |
+| M	| Masculino |
+| I	| Indefinido / Ambíguo / Não Encontrado |
+| E	| Erro de Requisição |
+
+<br>
+
+# 🧠 Detalhes Técnicos
+<details> <summary><strong>Clique para ver as Soluções Técnicas de Estabilidade e Integridade de Dados</strong></summary> 
+
+#### 1. **Formatação de Data Robusta (A Solução Definitiva)**
+
+A formatação é feita em duas etapas para garantir a precisão e resolver o problema de datetime do Excel:
+
+**1.1	Limpeza Célula a Célula (.apply()):**
+
+-	A função utiliza .apply() para processar o valor de cada célula individualmente.
+
+-	Isso isola erros como o unhashable type: 'list' (causado por dados sujos ou mesclagem), permitindo que a transformação continue.
+
+**1.2	Imposição de Texto (xlsxwriter):**
+
+-	Na escrita, o sistema usa o motor xlsxwriter para definir um formato de coluna do tipo Texto (@).
+o	Esta é a única forma garantida de impedir que o Excel adicione a hora (00:00:00) e que ele interprete a string dd/mm/aaaa incorretamente.
+
+#### **1. Estabilidade da API e Classificação**
+-	Contorno SSL: O módulo classifier.py utiliza a chamada requests.get(..., verify=False) para garantir a conectividade com a API do IBGE em ambientes de rede restritivos.
+
+-	Consulta Dupla para Precisão: Para garantir a classificação correta, o sistema executa duas chamadas distintas (?sexo=f e ?sexo=m) para cada nome e compara a frequência total agregada de uso.
+</details>
