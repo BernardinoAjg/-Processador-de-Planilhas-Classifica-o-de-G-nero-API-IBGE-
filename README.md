@@ -1,4 +1,4 @@
-#  <CENTER> ✨ 🇧🇷 Processador de Planilhas: Classificação de Gênero (API IBGE) 
+#  <CENTER> ✨ 🇧🇷 Republic DataForge  
 
 <p align="center">
 <img src="https://img.shields.io/badge/Python-3.x-blue.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
@@ -8,7 +8,8 @@
 
 <br>
 
-## Este projeto implementa um sistema robusto e modularizado em Python para processamento em lote de planilhas. Seu objetivo é enriquecer dados cadastrais, classificando o gênero dos indivíduos por meio da consulta à API de Nomes do Censo do IBGE. <br> <br> O sistema foi desenhado para garantir a integridade dos dados, contornando problemas como erros de certificado SSL e a formatação incorreta de datas no Excel (problema 00:00:00).
+##**Processador de Planilhas: Classificação de Gênero (API IBGE)** <br> 
+Este projeto implementa um sistema robusto e modularizado em Python para processamento em lote de planilhas. Seu objetivo é enriquecer dados cadastrais, classificando o gênero dos indivíduos por meio da consulta à API de Nomes do Censo do IBGE. <br> <br> O sistema foi desenhado para garantir a integridade dos dados, contornando problemas como erros de certificado SSL e a formatação incorreta de datas no Excel (problema 00:00:00).
 
 <br><br><br><br>
 
